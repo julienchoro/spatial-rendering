@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSWorldSensingUsageDescription</key>
+	<string>This app uses world sensing to enable interaction between virtual content and the real world. It does not collect or store any personally identifiable information.</string>
+	<key>NSHandsTrackingUsageDescription</key>
+	<string>This app uses hand tracking to enable interaction between virtual content and the user&apos;s hands.</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UIApplicationPreferredDefaultSceneSessionRole</key>
+		<string>CPSceneSessionRoleImmersiveSpaceApplication</string>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>CPSceneSessionRoleImmersiveSpaceApplication</key>
+			<array>
+				<dict>
+					<key>UISceneInitialImmersionStyle</key>
+					<string>UIImmersionStyleMixed</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -17,7 +17,7 @@
 import Foundation
 import simd
 
-public enum AnchorEvent {
+public enum AnchorEvent : Sendable {
     case added
     case updated
     case removed

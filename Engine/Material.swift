@@ -65,14 +65,14 @@ class OcclusionMaterial : Material {
 }
 
 class PhysicallyBasedMaterial : Material {
-    static let `default` : PhysicallyBasedMaterial = {
+    static var `default` : PhysicallyBasedMaterial {
         var material = PhysicallyBasedMaterial()
         material.name = "Default"
         material.baseColor.baseColorFactor = simd_float4(0.5, 0.5, 0.5, 1.0)
         material.roughness.roughnessFactor = 0.5
         material.metalness.metalnessFactor = 0.0
         return material
-    }()
+    }
 
     struct BaseColor {
         var baseColorTexture: TextureResource?

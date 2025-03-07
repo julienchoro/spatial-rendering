@@ -17,7 +17,7 @@
 import SwiftUI
 import Spatial
 
-public enum Event {
+public enum Event : Sendable {
     case worldAnchor(WorldAnchor, AnchorEvent)
     case meshAnchor(MeshAnchor, AnchorEvent)
     case planeAnchor(PlaneAnchor, AnchorEvent)

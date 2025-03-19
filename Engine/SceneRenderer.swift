@@ -55,6 +55,13 @@ struct FrameViews {
     var viewCount: Int {
         viewports.count
     }
+
+    func monocularView(index: Int) -> FrameViews {
+        return FrameViews(viewTransforms: [viewTransforms[index]],
+                          projectionTransforms: [projectionTransforms[index]],
+                          viewports: [viewports[index]],
+                          cameraPositions: [cameraPositions[index]])
+    }
 }
 
 fileprivate struct MeshDrawCall {
@@ -524,11 +531,12 @@ class SceneRenderer : NSObject {
 
         let passCount = (layout == .dedicated) ? views.viewCount : 1
         for passIndex in 0..<passCount {
+            let passViews = (layout == .dedicated) ? views.monocularView(index: passIndex) : views
             commandBuffer.pushDebugGroup("Main Pass #\(passIndex)")
             let renderPassDescriptor = makeRenderPassDescriptor(for: resources, passIndex: passIndex)
             if let renderCommandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) {
                 renderCommandEncoder.setFrontFacing(.counterClockwise)
-                drawMainPass(views: views, scene: scene, renderCommandEncoder: renderCommandEncoder)
+                drawMainPass(views: passViews, scene: scene, renderCommandEncoder: renderCommandEncoder)
                 renderCommandEncoder.endEncoding()
             }
             commandBuffer.popDebugGroup()

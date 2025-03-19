@@ -18,17 +18,14 @@ import Metal
 import ModelIO
 
 // A buffer view is a simple abstraction over a Metal buffer that
-// holds a strong reference to its buffer and also an optional
-// offset and length.
+// holds a strong reference to its buffer and an optional offset.
 class BufferView {
     let buffer: MTLBuffer
     let offset: Int
-    let length: Int
 
-    init(buffer: MTLBuffer, offset: Int = 0, length: Int? = nil) {
+    init(buffer: MTLBuffer, offset: Int = 0) {
         self.buffer = buffer
         self.offset = offset
-        self.length = length ?? buffer.length
     }
 }
 
